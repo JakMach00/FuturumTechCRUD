@@ -69,3 +69,7 @@ a:active {
 a:hover {
     color: red;
 }
+
+#rangeValue {
+    margin: 0em 1.5em;
+}

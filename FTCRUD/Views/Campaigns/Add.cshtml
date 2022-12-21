@@ -19,13 +19,13 @@
 
     <div class="col-2">
         <label for="" class="form-label">Bid Amount</label>
-        <input type="decimal" class="form-control" asp-for="BidAmount" placeholder="Funds to spend" min="1000">
+        <input type="decimal" class="form-control" asp-for="BidAmount" placeholder="Funds to spend">
     </div>
     <br />
 
     <div class="col-2">
         <label for="" class="form-label">Campaign fund</label>
-        <input type="decimal" class="form-control" asp-for="CampaignFund" placeholder="Funds to spend" min="5000">
+        <input type="decimal" class="form-control" asp-for="CampaignFund" placeholder="Funds to spend">
     </div>
     <br />
 
@@ -49,12 +49,22 @@
         </select>
     </div>
     <br />
-
-    <div class="col-2">
-        <label for="" class="form-label">Radius</label>
-        <input type="number" class="form-control" asp-for="Radius" min=25 max=300>
+    
+    <label for="" class="form-label">Radius</label>
+    <div class="col-3 d-flex">
+        <input type="range" class="form-range" id="slider" asp-for="Radius" min=25 max=300 step="5">
+        <div id="rangeValue">160</div>
     </div>
     <br />
+
+    <script>
+        var slider = document.getElementById('slider');
+        var value = document.getElementById('value');
+
+        slider.oninput = function () {
+            rangeValue.innerHTML = this.value;
+        }
+    </script>
 
     <div>
         <button type="submit" class="btn btn-primary">Create Campaign</button>

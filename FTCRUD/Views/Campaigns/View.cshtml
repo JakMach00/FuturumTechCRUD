@@ -1,4 +1,5 @@
-﻿@model FTCRUD.Models.UpdateCampaignViewModel
+﻿@using FTCRUD.Models.Domain
+@model FTCRUD.Models.UpdateCampaignViewModel
 
 @{
 }
@@ -25,13 +26,13 @@
 
     <div class="col-2">
         <label  class="form-label">Bid Amount</label>
-        <input type="decimal" class="form-control" asp-for="BidAmount" placeholder="Funds to spend" min="1000">
+        <input type="decimal" class="form-control" asp-for="BidAmount" placeholder="Funds to spend">
     </div>
     <br/>
 
     <div class="col-2">
         <label class="form-label">Campaign fund</label>
-        <input type="decimal" class="form-control" asp-for="CampaignFund" min="5000">
+        <input type="decimal" class="form-control" asp-for="CampaignFund">
     </div>
     <br/>
 
@@ -56,11 +57,21 @@
     </div>
     <br/>
 
-    <div class="col-2">
-        <label  class="form-label">Radius</label>
-        <input type="number" class="form-control" asp-for="Radius" min=25 max=300>
+    <label for="" class="form-label">Radius</label>
+    <div class="col-3 d-flex">
+        <input type="range" class="form-range" id="slider" asp-for="Radius" min=25 max=300 step="5">
+        <div id="rangeValue">@ViewData.Model.Radius</div>
     </div>
-    <br/>
+    <br />
+
+    <script>
+        var slider = document.getElementById('slider');
+        var value = document.getElementById('value');
+
+        slider.oninput = function () {
+            rangeValue.innerHTML = this.value;
+        }
+    </script>
 
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Update Campaign</button>
