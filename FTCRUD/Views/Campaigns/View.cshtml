@@ -1,0 +1,69 @@
+﻿@model FTCRUD.Models.UpdateCampaignViewModel
+
+@{
+}
+
+<h1 class="h1class">Edit Campaign Details</h1>
+<form method="post" action="View" class="mt-5">
+    <div class="col-5">
+        <label  class="form-label">ID</label>
+        <input type="text" class="form-control" asp-for="Id" readonly>
+    </div>
+    <br />
+
+    <div class="col-5">
+        <label  class="form-label">Campaign Name</label>
+        <input type="text" class="form-control" asp-for="CampaignName">
+    </div>
+    <br/>
+
+    <div class="col-2">
+        <label  class="form-label">Keywords</label>
+        <input type="text" class="form-control" asp-for="Keywords" placeholder="Company name">
+    </div>
+    <br/>
+
+    <div class="col-2">
+        <label  class="form-label">Bid Amount</label>
+        <input type="decimal" class="form-control" asp-for="BidAmount" placeholder="Funds to spend" min="1000">
+    </div>
+    <br/>
+
+    <div class="col-2">
+        <label class="form-label">Campaign fund</label>
+        <input type="decimal" class="form-control" asp-for="CampaignFund" min="5000">
+    </div>
+    <br/>
+
+    <div>
+        <input type="checkbox" class="form-check-input" asp-for="Status">
+        <label class="form-check-label">Campaign Status ON/OFF</label>
+    </div>
+    <br/>
+
+    <div class="col-2">
+        <label class="form-label">Town</label>
+        <select asp-for="Town" class="form-select">
+            <option value="Warsaw">Warsaw</option>
+            <option value="Cracow" selected="">Cracow</option>
+            <option value="Wrocław">Wrocław</option>
+            <option value="Poznań">Poznań</option>
+            <option value="Gdańsk">Gdańsk</option>
+            <option value="Rzeszów">Rzeszów</option>
+            <option value="Łódź">Łódź</option>
+            <option value="Tarnów">Tarnów</option>
+        </select>
+    </div>
+    <br/>
+
+    <div class="col-2">
+        <label  class="form-label">Radius</label>
+        <input type="number" class="form-control" asp-for="Radius" min=25 max=300>
+    </div>
+    <br/>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Update Campaign</button>
+        <button type="submit" class="btn btn-danger" asp-action="Delete" asp-controller="Campaigns">Delete Campaign</button>
+    </div>
+</form>

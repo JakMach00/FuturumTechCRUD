@@ -1,0 +1,45 @@
+﻿@using FTCRUD.Models.Domain
+@model List<FTCRUD.Models.Domain.Campaign>
+
+@{
+}
+
+<h1 class="h1class">Campaigns</h1>
+
+<table class="campTable">
+    <thead>
+    <tr>
+        <th>Campaign Name</th>
+        <th>Keywords</th>
+        <th>Bid Amount</th>
+        <th>Campaign Fund</th>
+        <th>Status</th>
+        <th>Town</th>
+        <th>Radius</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var campaign in Model)
+        {
+            <tr>
+                <td>@campaign.CampaignName</td>
+                <td>@campaign.Keywords</td>
+                <td>@campaign.BidAmount</td>
+                <td>@campaign.CampaignFund</td>
+                @if (campaign.Status == true)
+                {
+                    <td>Active</td>
+                }
+                else
+                {
+                    <td>Unactive</td>
+                }
+                <td>@campaign.Town</td>
+                <td>@campaign.Radius</td>
+                <td><a href="Campaigns/View/@campaign.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
